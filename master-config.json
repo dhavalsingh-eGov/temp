@@ -94,8 +94,6 @@
       "moduleDefinition": null,
       "isStateLevel": true,
       "uniqueKeys": [
-        "$.code",
-        "$.tenantId"
       ]
     },
     "CensusYear": {
