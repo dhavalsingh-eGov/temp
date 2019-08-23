@@ -1,0 +1,22 @@
+[
+
+	{
+ 
+   	"url": "http://admin",
+	"hookType": "PREHOOK",
+	"matchType" :"STARTSWITH /admin",
+	"hookURL":"def",
+	"enabled":true
+	},
+
+	{
+	"url": "http://admin_1",
+	"hookType": "POSTHOOK",
+	"matchType" :"STARTSWITH /admin_1",
+	"hookURL":"def_1",
+	"enabled":false
+	}
+
+]
+
+
