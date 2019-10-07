@@ -3,6 +3,7 @@
     "actions-test": {
       "masterName": "actions-test",
       "isStateLevel": true,
+      "isMergeFile": true,
       "uniqueKeys": [
         "$.id"
       ]
@@ -11,7 +12,8 @@
   "ACCESSCONTROL-ROLES": {
     "roles": {
       "masterName": "roles",
-      "isStateLevel": true,
+      "isStateLevel": true
+      "isMergeFile": true,
       "uniqueKeys": [
         "$.code"
       ]
