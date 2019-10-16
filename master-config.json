@@ -727,6 +727,7 @@
     "BusinessService": {
       "masterName": "BusinessService",
       "isStateLevel": true,
+      "isMergeFile":true,
       "uniqueKeys": [
         "$.code"
       ]
