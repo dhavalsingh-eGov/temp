@@ -12,6 +12,7 @@
     "roles": {
       "masterName": "roles",
       "isStateLevel": true,
+      "isMergeAllowed": true,
       "uniqueKeys": [
         "$.code"
       ]
@@ -74,36 +75,12 @@
     }
   },
   "common-masters": {
-    "Ui-Common-Config": {
-      "masterName": "Ui-Common-Config",
-      "moduleDefinition": null,
-      "isStateLevel": true,
-      "uniqueKeys": []
-    },
-    "Department": {
-      "masterName": "Department",
+    "IdFormat": {
+      "masterName": "IdFormat",
       "moduleDefinition": null,
       "isStateLevel": true,
       "uniqueKeys": [
-        "$.code",
-        "$.tenantId"
-      ]
-    },
-    "CensusYear": {
-      "masterName": "CensusYear",
-      "moduleDefinition": null,
-      "isStateLevel": true,
-      "uniqueKeys": [
-        "$.code",
-        "$.tenantId"
-      ]
-    },
-    "Designation": {
-      "masterName": "Designation",
-      "moduleDefinition": null,
-      "isStateLevel": true,
-      "uniqueKeys": [
-        "$.code"
+        "$.idname"
       ]
     },
     "OwnerShipCategory": {
@@ -140,6 +117,32 @@
     },
     "DocumentType": {
       "masterName": "StructureType",
+      "moduleDefinition": null,
+      "isStateLevel": true,
+      "uniqueKeys": [
+        "$.code"
+      ]
+    },
+    "Department": {
+      "masterName": "Department",
+      "moduleDefinition": null,
+      "isStateLevel": true,
+      "uniqueKeys": [
+        "$.code",
+        "$.tenantId"
+      ]
+    },
+    "CensusYear": {
+      "masterName": "CensusYear",
+      "moduleDefinition": null,
+      "isStateLevel": true,
+      "uniqueKeys": [
+        "$.code",
+        "$.tenantId"
+      ]
+    },
+    "Designation": {
+      "masterName": "Designation",
       "moduleDefinition": null,
       "isStateLevel": true,
       "uniqueKeys": [
@@ -481,7 +484,7 @@
     },
     "FireCess": {
       "masterName": "FireCess",
-      "isStateLevel": true,
+      "isStateLevel": false,
       "uniqueKeys": []
     },
     "Floor": {
@@ -596,6 +599,13 @@
     }
   },
   "TradeLicense": {
+    "ApplicationType": {
+      "masterName": "ApplicationType",
+      "isStateLevel": true,
+      "uniqueKeys": [
+        "$.code"
+      ]
+    },
     "TradeType": {
       "masterName": "TradeType",
       "isStateLevel": true,
@@ -608,22 +618,6 @@
       "isStateLevel": true,
       "uniqueKeys": [
         "$.code"
-      ]
-    },
-    "ApplicationType": {
-      "masterName": "ApplicationType",
-      "isStateLevel": true,
-      "uniqueKeys": [
-        "$.code"
-      ]
-    }
-  },
-  "Workflow": {
-    "BusinessService": {
-      "masterName": "BusinessService",
-      "isStateLevel": true,
-      "uniqueKeys": [
-        "$.businessService"
       ]
     }
   },
@@ -671,66 +665,21 @@
       ]
     }
   },
-  "firenoc": {
-    "BuildingType": {
-      "masterName": "BuildingType",
-      "isStateLevel": true,
-      "uniqueKeys": [
-        "$.code"
-      ]
-    },
-    "ApplicationType": {
-      "masterName": "ApplicationType",
-      "isStateLevel": true,
-      "uniqueKeys": [
-        "$.code"
-      ]
-    },
-    "FireStations": {
-      "masterName": "FireStations",
-      "isStateLevel": true,
-      "uniqueKeys": [
-        "$.code"
-      ]
-    },
-    "FireNocStateConstats": {
-      "masterName": "FireNocStateConstats",
-      "isStateLevel": true,
-      "uniqueKeys": [
-        "$.code"
-      ]
-    },
-    "UOMs": {
-      "masterName": "UOMs",
-      "isStateLevel": true,
-      "uniqueKeys": [
-        "$.code"
-      ]
-    }
-
-  },
   "BillingService": {
-    "TaxPeriod": {
-      "masterName": "TaxPeriod",
+    "BusinessService": {
+      "masterName": "BusinessService",
       "isStateLevel": true,
-      "uniqueKeys": [
-        "$.code"
-      ]
+      "uniqueKeys": []
     },
     "TaxHeadMaster": {
       "masterName": "TaxHeadMaster",
       "isStateLevel": true,
-      "uniqueKeys": [
-        "$.code"
-      ]
+      "uniqueKeys": []
     },
-    "BusinessService": {
-      "masterName": "BusinessService",
+    "TaxPeriod": {
+      "masterName": "TaxPeriod",
       "isStateLevel": true,
-      "isMergeAllowed":true,
-      "uniqueKeys": [
-        "$.code"
-      ]
+      "uniqueKeys": []
     }
   },
   "FinanceModule": {
