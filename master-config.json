@@ -485,6 +485,7 @@
     "FireCess": {
       "masterName": "FireCess",
       "isStateLevel": false,
+      "isMergeAllowed":true,
       "uniqueKeys": []
     },
     "Floor": {
