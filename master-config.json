@@ -389,6 +389,7 @@
       "masterName": "tenants",
       "isStateLevel": true,
       "moduleDefinition": null,
+      "isMergeAllowed":true,
       "uniqueKeys": [
         "$.code"
       ]
