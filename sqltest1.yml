@@ -1,0 +1,26 @@
+ReportDefinitions:
+- reportName: sqltest
+  summary: sql test
+  version: 1.0.0
+  moduleName: sql
+  sourceColumns:
+  - name: receiptNo
+    label: reports.citizen.receiptno
+    type: string
+    source: citizen
+  - name: receiptDate
+    label: reports.citizen.receiptdate
+    type: number
+    source: citizen
+  - name: totalAmount
+    label: reports.citizen.totalamount
+    type: number
+    source: citizen
+  searchParams:
+  - name: receiptno
+    label: reports.citizen.receiptno
+    type: string
+    source: citizen
+    isMandatory: false
+    searchClause: and receiptno = $receiptno
+  query: SELECT receiptDate, totalAmount FROM sqltest1 WHERE 1 = 1
