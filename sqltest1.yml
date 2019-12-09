@@ -8,7 +8,7 @@ ReportDefinitions:
       -
         name: receiptNo
         label: reports.citizen.receiptno
-        type: string
+        type: singlevaluelist
         source: citizen
       -
         name: receiptDate
@@ -24,7 +24,7 @@ ReportDefinitions:
       -
         name: receiptno
         label: reports.citizen.receiptno
-        type: string
+        type: singlevaluelist
         source: citizen
         isMandatory: false
         searchClause: 'and receiptno = $receiptno'
