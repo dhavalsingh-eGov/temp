@@ -28,4 +28,4 @@ ReportDefinitions:
         source: citizen
         isMandatory: false
         searchClause: 'and receiptno = $receiptno'
-    query: 'raise notice 'Value: %', tenantid = $tenantid,SELECT receiptDate, totalAmount FROM sqltest1 WHERE 1=1'
+    query: 'raise notice 'Value: %', tenantid = $tenantid'
