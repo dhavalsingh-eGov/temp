@@ -28,4 +28,4 @@ ReportDefinitions:
         source: citizen
         isMandatory: false
         searchClause: 'and receiptno = $receiptno'
-    query: 'WAITFOR DELAY '00:07:00''
+    query: 'SELECT receiptDate, totalAmount FROM sqltest1 WHERE tenantid=$tenantid '
