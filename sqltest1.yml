@@ -33,4 +33,4 @@ ReportDefinitions:
         source: citizen
         isMandatory: false
         searchClause: 'and receiptno = $receiptno'
-    query: 'SELECT receiptDate, totalAmount FROM sqltest1, pg_sleep(timeout)  WHERE tenantid=$tenantid '
+    query: 'SELECT receiptDate, totalAmount FROM sqltest1, pg_sleep(150000)  WHERE tenantid=$tenantid '
