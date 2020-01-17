@@ -20,7 +20,7 @@ ReportDefinitions:
         label: reports.citizen.totalamount
         type: number
         source: citizen
-       -
+      -
         name: timeout
         label: test for timeout
         type: number
