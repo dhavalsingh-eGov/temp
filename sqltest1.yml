@@ -33,4 +33,4 @@ ReportDefinitions:
         source: citizen
         isMandatory: false
         searchClause: ', pg_sleep($timeout)'
-    query: 'SELECT receiptDate, totalAmount '
+    query: 'SELECT receiptDate, totalAmount FROM sqltest1 '
