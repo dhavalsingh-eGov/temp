@@ -20,6 +20,11 @@ ReportDefinitions:
         label: reports.citizen.totalamount
         type: number
         source: citizen
+       -
+        name: timeout
+        label: test for timeout
+        type: number
+        source: citizen
     searchParams:
       -
         name: receiptno
@@ -28,4 +33,4 @@ ReportDefinitions:
         source: citizen
         isMandatory: false
         searchClause: 'and receiptno = $receiptno'
-    query: 'SELECT receiptDate, totalAmount FROM sqltest1, pg_sleep(1500000)  WHERE tenantid=$tenantid '
+    query: 'SELECT receiptDate, totalAmount FROM sqltest1, pg_sleep(timeout)  WHERE tenantid=$tenantid '
