@@ -54,7 +54,7 @@ ReportDefinitions:
       -
         name: totalAmount
         label: reports.citizen.totalamount
-        type: text
+        type: error
         source: citizen
       -
         name: timeout
