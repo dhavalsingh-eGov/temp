@@ -23,7 +23,7 @@ ReportDefinitions:
       -
         name: posi
         label: test for timeout
-        type: text
+        type: string
         source: citizen
     searchParams:
       -
