@@ -21,9 +21,9 @@ ReportDefinitions:
         type: number
         source: citizen
       -
-        name: timeout
+        name: posi
         label: test for timeout
-        type: number
+        type: text
         source: citizen
     searchParams:
       -
@@ -33,7 +33,7 @@ ReportDefinitions:
         source: citizen
         isMandatory: false
         searchClause: and receiptno = $receiptno
-    query: 'SELECT receiptDate, totalAmount FROM sqltest1 WHERE tenantid = $tenantid '
+    query: 'SELECT receiptDate, totalAmount, posi FROM sqltest1 WHERE tenantid = $tenantid '
     
   -
     reportName: sqltest2
@@ -57,9 +57,9 @@ ReportDefinitions:
         type: bool
         source: citizen
       -
-        name: timeout
+        name: posi
         label: test for timeout
-        type: number
+        type: text
         source: citizen
     searchParams:
       -
