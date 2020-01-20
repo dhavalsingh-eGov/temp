@@ -32,8 +32,8 @@ ReportDefinitions:
         type: singlevaluelist
         source: citizen
         isMandatory: false
-        searchClause: 'receiptno = $receiptno'
-    query: 'SELECT receiptDate, totalAmount FROM sqltest1 WHERE tenantid = $tenantid and'
+        searchClause: and receiptno = $receiptno
+    query: 'SELECT receiptDate, totalAmount FROM sqltest1 WHERE tenantid = $tenantid '
     
   -
     reportName: sqltest2
