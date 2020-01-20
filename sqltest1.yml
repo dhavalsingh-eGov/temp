@@ -18,7 +18,7 @@ ReportDefinitions:
       -
         name: totalAmount
         label: reports.citizen.totalamount
-        type: number
+        type: string
         source: citizen
       -
         name: timeout
