@@ -49,7 +49,7 @@ ReportDefinitions:
       -
         name: receiptDate
         label: reports.citizen.receiptdate
-        type: number
+        type: errortest
         source: citizen
       -
         name: totalAmount
@@ -69,6 +69,6 @@ ReportDefinitions:
         source: citizen
         isMandatory: false
         searchClause: 'receiptno = $receiptno'
-    query: 'SELECT totalAmoun, receiptDate FROM sqltest1 WHERE tenantid = $tenantid and'
+    query: 'SELECT totalAmount, receiptDate FROM sqltest1 WHERE tenantid = $tenantid and'
 
     
