@@ -13,12 +13,12 @@ ReportDefinitions:
       -
         name: receiptDate
         label: reports.citizen.receiptdate
-        type: number
+        type: string
         source: citizen
       -
         name: totalAmount
         label: reports.citizen.totalamount
-        type: number
+        type: string
         source: citizen
       -
         name: timeout
