@@ -18,7 +18,7 @@ ReportDefinitions:
       -
         name: totalAmount
         label: reports.citizen.totalamount
-        type: string
+        type: number
         source: citizen
       -
         name: timeout
@@ -29,7 +29,7 @@ ReportDefinitions:
       -
         name: receiptno
         label: reports.citizen.receiptno
-        type: singlevaluelist
+        type: number
         source: citizen
         isMandatory: false
         searchClause: 'receiptno = $receiptno'
