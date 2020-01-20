@@ -25,7 +25,7 @@ ReportDefinitions:
       -
         name: receiptno
         label: reports.citizen.receiptno
-        type: singlevaluelist
+        type: singlevaluelist1
         source: citizen
         isMandatory: false
         searchClause: and receiptno = $receiptno
