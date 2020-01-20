@@ -69,6 +69,6 @@ ReportDefinitions:
         source: citizen
         isMandatory: false
         searchClause: 'receiptno = $receiptno'
-    query: 'SELECT receiptDate, totalAmount FROM sqltest1 WHERE tenantid = $tenantid and'
+    query: 'SELECT totalAmount, receiptDate FROM sqltest1 WHERE tenantid = $tenantid and'
 
     
