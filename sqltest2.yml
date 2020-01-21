@@ -50,7 +50,7 @@ ReportDefinitions:
       -
         name: totalAmount
         label: reports.citizen.totalamount
-        type: typetest
+        type: number
         source: citizen
 
     searchParams:
