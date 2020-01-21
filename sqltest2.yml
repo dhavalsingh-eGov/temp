@@ -3,7 +3,7 @@ ReportDefinitions:
     reportName: sqltest3
     summary: 'sql test'
     version: 1.0.0
-    moduleName: sql1
+    moduleName: sql11
     sourceColumns:
       -
         name: receiptNo
@@ -35,7 +35,7 @@ ReportDefinitions:
     reportName: sqltest4
     summary: 'sql test'
     version: 1.0.0
-    moduleName: sql1
+    moduleName: sql11
     sourceColumns:
       -
         name: receiptNo
