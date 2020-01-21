@@ -18,7 +18,7 @@ ReportDefinitions:
       -
         name: totalAmount
         label: reports.citizen.totalamount
-        type: number
+        type: xxx
         source: citizen
         
     searchParams:
