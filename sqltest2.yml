@@ -1,9 +1,9 @@
 ReportDefinitions:
   -
-    reportName: sqltest
+    reportName: sqltest3
     summary: 'sql test'
     version: 1.0.0
-    moduleName: sql
+    moduleName: sql1
     sourceColumns:
       -
         name: receiptNo
@@ -32,10 +32,10 @@ ReportDefinitions:
     query: 'SELECT receiptDate, totalAmount FROM sqltest1 WHERE tenantid = $tenantid '
     
   -
-    reportName: sqltest2
+    reportName: sqltest3
     summary: 'sql test'
     version: 1.0.0
-    moduleName: sql
+    moduleName: sql1
     sourceColumns:
       -
         name: receiptNo
