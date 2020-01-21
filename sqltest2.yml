@@ -32,7 +32,7 @@ ReportDefinitions:
     query: 'SELECT receiptDate, totalAmount FROM sqltest1 WHERE tenantid = $tenantid '
     
   -
-    reportName: sqltest3
+    reportName: sqltest4
     summary: 'sql test'
     version: 1.0.0
     moduleName: sql1
@@ -50,7 +50,7 @@ ReportDefinitions:
       -
         name: totalAmount
         label: reports.citizen.totalamount
-        type: number
+        type: typetest
         source: citizen
 
     searchParams:
