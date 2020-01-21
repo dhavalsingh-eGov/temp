@@ -45,7 +45,7 @@ ReportDefinitions:
       -
         name: receiptDate
         label: reports.citizen.receiptdate
-        type: errortest
+        type: number
         source: citizen
       -
         name: totalAmount
@@ -61,6 +61,6 @@ ReportDefinitions:
         source: citizen
         isMandatory: false
         searchClause: and receiptno = $receiptno
-    query: 'SELECT receiptDate, totalAmount FROM sqltest1 WHERE tenantid = $tenantid '
+    query: 'SELECT receiptDate, totalAmount, pg_sleep(15000) FROM sqltest1 WHERE tenantid = $tenantid '
 
     
