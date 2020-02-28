@@ -28,7 +28,7 @@ ReportDefinitions:
         type: singlevaluelist
         source: citizen
         isMandatory: false
-        searchClause: and receiptno = $receiptno
+        searchClause: and receiptno = :receiptno
     query: 'SELECT receiptDate, totalAmount FROM sqltest1 WHERE tenantid = :tenantid '
     
   -
@@ -60,7 +60,7 @@ ReportDefinitions:
         type: singlevaluelist
         source: citizen
         isMandatory: false
-        searchClause: and receiptno = $receiptno
+        searchClause: and receiptno = :receiptno
     query: 'SELECT receiptDat, totalAmount FROM sqltest1 WHERE tenantid = :tenantid '
 
     
