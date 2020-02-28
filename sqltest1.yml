@@ -28,7 +28,7 @@ ReportDefinitions:
         type: singlevaluelist
         source: citizen
         isMandatory: false
-        searchClause: and receiptno = $receiptno
+        searchClause: and receiptno = $_receiptno
     query: SELECT receiptDate, totalAmount FROM sqltest1 WHERE tenantid = $tenantid 
     
   -
