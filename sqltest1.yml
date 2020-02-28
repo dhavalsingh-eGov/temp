@@ -23,7 +23,7 @@ ReportDefinitions:
         
     searchParams:
       -
-        name: receiptno
+        name: Receiptno
         label: reports.citizen.receiptno
         type: singlevaluelist
         source: citizen
