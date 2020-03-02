@@ -55,12 +55,12 @@ ReportDefinitions:
 
     searchParams:
       -
-        name: _receiptno
+        name: receiptno
         label: reports.citizen.receiptno
         type: singlevaluelist
         source: citizen
         isMandatory: false
-        searchClause: and receiptno = $_receiptno
+        searchClause: and receiptno = $receiptno
     query: SELECT receiptDate, totalAmount FROM sqltest1 WHERE 1=1  $_receiptno and tenantid = $tenantid
 
     
