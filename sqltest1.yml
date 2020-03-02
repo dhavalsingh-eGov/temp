@@ -23,13 +23,13 @@ ReportDefinitions:
         
     searchParams:
       -
-        name: Receiptno
+        name: _receiptno
         label: reports.citizen.receiptno
         type: singlevaluelist
         source: citizen
         isMandatory: false
-        searchClause: and receiptno = $Receiptno
-    query: SELECT receiptDate, totalAmount FROM sqltest1 WHERE 1=1  $_Receiptno and tenantid = $tenantid 
+        searchClause: and receiptno = $_receiptno
+    query: SELECT receiptDate, totalAmount FROM sqltest1 WHERE 1=1  $__receiptno and tenantid = $tenantid 
     
   -
     reportName: sqltest2
@@ -55,12 +55,12 @@ ReportDefinitions:
 
     searchParams:
       -
-        name: receiptno
+        name: _receiptno
         label: reports.citizen.receiptno
         type: singlevaluelist
         source: citizen
         isMandatory: false
-        searchClause: and receiptno = $receiptno
-    query: 'SELECT receiptDat, totalAmount FROM sqltest1 WHERE tenantid = $tenantid '
+        searchClause: and receiptno = $_receiptno
+    query: SELECT receiptDate, totalAmount FROM sqltest1 WHERE 1=1  $_receiptno and tenantid = $tenantid
 
     
