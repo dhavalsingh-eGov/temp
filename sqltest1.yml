@@ -61,6 +61,57 @@ ReportDefinitions:
         source: citizen
         isMandatory: false
         searchClause: and receiptno = $_receiptno
-    query: SELECT receiptDate, totalAmount FROM sqltest1 WHERE 1=1  $__receiptno and tenantid = $tenantid
+    query: |
+      -- Use CTE to force query plan, compute & use CTE later
+      WITH receipt_breakup AS (
+                  SELECT 
+                    receiptheader, 
+                    SUM(CASE WHEN taxheadcode = 'PT_ADHOC_PENALTY' THEN adjustedamount ELSE 0 END) as adhocpenalty, 
+                    SUM(CASE WHEN taxheadcode = 'PT_ADHOC_REBATE' THEN adjustedamount ELSE 0 END) as adhocrebate, 
+                    SUM(CASE WHEN taxheadcode = 'PT_FIRE_CESS' THEN adjustedamount ELSE 0 END) as firecess, 
+                    SUM(CASE WHEN taxheadcode = 'PT_CANCER_CESS' THEN adjustedamount ELSE 0 END) as cancercess, 
+                    SUM(CASE WHEN taxheadcode = 'PT_TIME_INTEREST' THEN adjustedamount ELSE 0 END) as interest, 
+                    SUM(CASE WHEN taxheadcode = 'PT_TIME_PENALTY' THEN adjustedamount ELSE 0 END) as penalty, 
+                    SUM(CASE WHEN taxheadcode = 'PT_TIME_REBATE' THEN adjustedamount ELSE 0 END) as rebate, 
+                    SUM(CASE WHEN taxheadcode = 'PT_TAX' THEN adjustedamount ELSE 0 END) as propertytax, 
+                    (SUM(CASE WHEN taxheadcode = 'PT_UNIT_USAGE_EXEMPTION' THEN adjustedamount ELSE 0 END)
+                    + SUM(CASE WHEN taxheadcode = 'PT_OWNER_EXEMPTION' THEN adjustedamount ELSE 0 END) )as exemption,
+                    ( SUM(CASE WHEN taxheadcode = 'PT_ROUNDOFF' THEN adjustedamount ELSE 0 END)
+                    + SUM(CASE WHEN taxheadcode = 'PT_DECIMAL_CEILING_DEBIT' THEN adjustedamount ELSE 0 END)
+                    + SUM(CASE WHEN taxheadcode = 'PT_DECIMAL_CEILING_CREDIT' THEN adjustedamount ELSE 0 END)) as adjustment
+                  FROM egcl_receiptdetails_v1 as rd
+                  INNER JOIN egcl_receiptheader_v1 as rh on rh.id = rd.receiptheader
+                  WHERE rd.tenantid = $tenantid $_fromDate $_toDate
+                  GROUP BY rd.receiptheader
+      )
+      SELECT 
+        rh.tenantid AS tenantid, 
+        rh.id, 
+        Substring(rh.consumercode, '(.*):') AS propertyid, 
+        Substring(rh.consumercode, ':(.*)') AS assessmentnumber, 
+        rh.consumercode,
+        to_char((To_timestamp(rh.receiptdate/1000) at time Zone 'Asia/Kolkata'),'DD-MM-YYYY')  AS receiptdate,
+        bankid AS bankname, 
+        receiptnumber, 
+        amount, 
+        instrumenttype, 
+        transactionnumber, 
+        to_char((To_timestamp(transactiondate/1000) at time Zone 'Asia/Kolkata'),'DD-MM-YYYY') AS transactiondate, 
+        receipt_breakup.*, 
+        rh.totalamount - ih.amount AS pendingamount,
+        pt_detail.financialyear,
+        to_char((To_timestamp(rh.manualreceiptdate/1000) at time Zone 'Asia/Kolkata'),'DD-MM-YYYY') AS g8issuedate,
+        Initcap(COALESCE(pt_detail.usagecategoryminor, pt_detail.usagecategorymajor)) as usagetype,
+        manualreceiptnumber as g8receiptno,
+        (CASE WHEN collectiontype='COUNTER' THEN eg_user.name ELSE '' END) as collectorname,
+        pt_detail.additionaldetails->>'remarks' as "remarks"
+      FROM egcl_receiptheader_v1 AS rh
+      JOIN egcl_receiptinstrument_v1 AS ri ON rh.id = ri.receiptheader
+      JOIN egcl_instrumentheader_v1 AS ih ON ih.id = ri.instrumentheader
+      JOIN receipt_breakup ON rh.id = receipt_breakup.receiptheader
+      JOIN eg_pt_propertydetail_v2 pt_detail ON CONCAT(pt_detail.property, ':', pt_detail.assessmentnumber) = rh.consumercode
+      JOIN eg_pt_address_v2 pt_addr ON pt_detail.property = pt_addr.property
+      Join eg_user ON eg_user.id = rh.createdby::INTEGER
+      WHERE rh.tenantid = $tenantid and rh.status != 'Cancelled'
 
     
