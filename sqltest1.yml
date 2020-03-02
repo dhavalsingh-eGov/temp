@@ -57,7 +57,7 @@ ReportDefinitions:
       -
         name: _toDate
         label: reports.citizen.receiptno
-        type: singlevaluelist
+        type: epoch
         source: citizen
         isMandatory: false
         searchClause: AND rh.receiptdate <= $_toDate
@@ -65,7 +65,7 @@ ReportDefinitions:
       -
         name: fromDate
         label: reports.citizen.receiptno
-        type: singlevaluelist
+        type: epoch
         source: citizen
         isMandatory: false
         searchClause:  AND rh.receiptdate >= $fromDate
