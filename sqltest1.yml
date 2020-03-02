@@ -55,12 +55,12 @@ ReportDefinitions:
 
     searchParams:
       -
-        name: toDate
+        name: _toDate
         label: reports.citizen.receiptno
         type: singlevaluelist
         source: citizen
         isMandatory: false
-        searchClause: and receiptno = $toDate
+        searchClause: and toDate = $_toDate
     query: |
       -- Use CTE to force query plan, compute & use CTE later
       WITH receipt_breakup AS (
@@ -81,7 +81,7 @@ ReportDefinitions:
                     + SUM(CASE WHEN taxheadcode = 'PT_DECIMAL_CEILING_CREDIT' THEN adjustedamount ELSE 0 END)) as adjustment
                   FROM egcl_receiptdetails_v1 as rd
                   INNER JOIN egcl_receiptheader_v1 as rh on rh.id = rd.receiptheader
-                  WHERE rd.tenantid = $tenantid $_fromDate $_toDate
+                  WHERE rd.tenantid = $tenantid $_fromDate $__toDate
                   GROUP BY rd.receiptheader
       )
       SELECT 
