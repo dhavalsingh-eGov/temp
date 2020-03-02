@@ -55,12 +55,12 @@ ReportDefinitions:
 
     searchParams:
       -
-        name: _receiptno
+        name: toDate
         label: reports.citizen.receiptno
         type: singlevaluelist
         source: citizen
         isMandatory: false
-        searchClause: and receiptno = $_receiptno
+        searchClause: and receiptno = $toDate
     query: |
       -- Use CTE to force query plan, compute & use CTE later
       WITH receipt_breakup AS (
