@@ -60,7 +60,7 @@ ReportDefinitions:
         type: singlevaluelist
         source: citizen
         isMandatory: false
-        searchClause: and toDate = $_toDate
+        searchClause: AND rh.receiptdate <= $_toDate
         
       -
         name: fromDate
@@ -68,7 +68,7 @@ ReportDefinitions:
         type: singlevaluelist
         source: citizen
         isMandatory: false
-        searchClause: and fromDate = $fromDate
+        searchClause:  AND rh.receiptdate >= $fromDate
     query: |
       -- Use CTE to force query plan, compute & use CTE later
       WITH receipt_breakup AS (
